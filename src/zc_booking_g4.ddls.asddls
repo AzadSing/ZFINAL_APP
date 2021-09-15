@@ -45,7 +45,7 @@ define root view entity ZC_Booking_G4 as projection on ZI_BOOKING_G4 as Booking{
     BusName,
     @EndUserText.label: 'Departure Time'
     DepartureTime,
-    @EndUserText.label: 'Travel Duration'
+    @EndUserText.label: 'Travel Duration (in hrs)'
     Duration,
     @EndUserText.label: 'Source'
     @Consumption.valueHelpDefinition: [{ entity: {name : 'ZI_BUS_G4', element: 'Source'}}]

@@ -13,11 +13,15 @@ lock master
   delete;
   field ( numbering : managed, readonly ) BookingUuid;
   field (readonly) TravelUuid;
-  field (readonly) BookingDate, CurrentStatus, TravelId, UserId, EmptySeats, BusName, Source, Destination, Fare, TotalSeats, Duration, DepartureTime;
+  field(mandatory : create) PhoneNumber, BusId, PassangerName, PassangerAge, Gender, StartDate;
+  field (readonly) BookingDate, CurrentStatus, Pnr, TravelId, UserId, EmptySeats, BusName, Source, Destination, Fare, TotalSeats, Duration, DepartureTime;
+  determination onCancellation on save { delete; }
   determination changeBusStatus on modify { field BusId; }
   determination changeTravel on modify { field BusId, StartDate; }
   determination changeOnCreate on save { create; }
   validation validateAge on save { field PassangerAge; }
+  validation validatePhoneNumber on save { field PhoneNumber; }
+  validation startDate on save { field StartDate; }
 
   mapping for zbooking_g4{
     BookingUuid = booking_uuid;

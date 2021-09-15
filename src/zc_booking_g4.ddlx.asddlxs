@@ -11,6 +11,7 @@ annotate view ZC_Booking_G4
     label: 'All Bookings',
     position: 10}]
     @UI:{ identification: [{ position: 1, label: 'Booking UUID' }] }
+    @UI.hidden: true
     BookingUuid;
     @UI: {  lineItem:       [ { position: 20 } ],
           identification: [ { position: 20 } ],
